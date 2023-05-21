@@ -18,7 +18,7 @@ public class AthleteController {
 
 
 
-    /// testing github
+    /// testing
     @Autowired
     AthleteService athleteService;
 
