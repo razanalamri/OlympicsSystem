@@ -72,7 +72,7 @@ public class MedalService {
         for (Medal medal1 : medal) {
             String countryName = medal1.getCountry();
             String resultCountry = results.getCountry();
-            if(countryName==resultCountry){
+            if(countryName.equals(resultCountry)){
                 medal1.setGold(gold+1);
                 medalRepositry.save(medal1);
         }}
