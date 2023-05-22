@@ -28,4 +28,15 @@ class AthleteControllerTest {
         assertEquals("Firas",name);
     }
 
+    @Test
+    void getByAthleteName() {
+        Athlete athleteToTest;
+        athleteToTest=athleteController.getByAthleteName("Asaad");
+        Integer id=athleteToTest.getId();
+        assertEquals(1,id);
+    }
+
+
+
+
 }

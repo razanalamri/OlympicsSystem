@@ -26,6 +26,8 @@ class EventControllerTest {
         String name=eventToTest.getName();
         assertEquals("Summer Olympic Sports",name);
     }
+
+
 }
 
 

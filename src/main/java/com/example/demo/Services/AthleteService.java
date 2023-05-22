@@ -37,9 +37,4 @@ AthleteRepositry athleteRepositry;
     }
 
 
-
-
-
-
-
 }
