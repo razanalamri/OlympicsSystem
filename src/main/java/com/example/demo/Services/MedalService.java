@@ -66,16 +66,18 @@ public class MedalService {
         return medals;
     }
 
-    public void updateMedals(Integer gold){
-       List <Medal> medal=medalRepositry.getAllMedals();
-        Results results=resultsRepositry.getLatestUpdate();
+    public void updateMedals(Integer gold) {
+        List<Medal> medal = medalRepositry.getAllMedals();
+        Results results = resultsRepositry.getLatestUpdate();
         for (Medal medal1 : medal) {
             String countryName = medal1.getCountry();
             String resultCountry = results.getCountry();
-            if(countryName.equals(resultCountry)){
-                medal1.setGold(gold+1);
+            if (countryName.equals(resultCountry)) {
+                medal1.setGold(gold + 1);
                 medalRepositry.save(medal1);
-        }}
+            }
+        }
 
 
-}}
+    }
+}

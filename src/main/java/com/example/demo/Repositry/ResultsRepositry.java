@@ -9,14 +9,15 @@ import org.springframework.data.repository.query.Param;
 
 import java.util.List;
 
-public interface ResultsRepositry extends JpaRepository<Results,Integer> {
+public interface ResultsRepositry extends JpaRepository<Results, Integer> {
 
     @Query("SELECT s from Results s")
     List<Results> getAllResults();
-    @Query(value="SELECT s from Results s where s.id = :id ")
-    Results getById(@Param("id")Integer id);
 
-    @Query(value="SELECT s from Results s where s.updatedDate=(select MAX(s.updatedDate) from Results s)")
+    @Query(value = "SELECT s from Results s where s.id = :id ")
+    Results getById(@Param("id") Integer id);
+
+    @Query(value = "SELECT s from Results s where s.updatedDate=(select MAX(s.updatedDate) from Results s)")
     Results getLatestUpdate();
 }
 

@@ -1,7 +1,9 @@
 package com.example.demo.Models;
+
 import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
+
 import javax.persistence.*;
 import java.util.Date;
 
@@ -9,7 +11,7 @@ import java.util.Date;
 @Setter
 @Getter
 @Entity
-public class Event extends BaseEntity{
+public class Event extends BaseEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -18,8 +20,6 @@ public class Event extends BaseEntity{
     String sport;
     Date schedule;
     Integer numberOfAthletes;
-
-
 
 
     public Integer getId() {

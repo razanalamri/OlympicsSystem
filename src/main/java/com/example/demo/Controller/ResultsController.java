@@ -14,36 +14,34 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 @RestController
-@RequestMapping(value= "results" )
+@RequestMapping(value = "results")
 public class ResultsController {
 
-   @Autowired
+    @Autowired
     ResultsService resultsService;
+
     @RequestMapping(value = "getAll", method = RequestMethod.GET)
-    public List<Results> getAllResults(){
+    public List<Results> getAllResults() {
         List<Results> results = resultsService.getAllResults();
         return results;
     }
 
     @RequestMapping(value = "getById", method = RequestMethod.GET)
-    public Results getById(@RequestParam Integer id){
-        Results results=resultsService.getById(id);
+    public Results getById(@RequestParam Integer id) {
+        Results results = resultsService.getById(id);
         return results;
     }
 
-    @RequestMapping(value = "updateResults",method = RequestMethod.POST)
-    public void updateResults(@RequestParam Integer id,String athlete,String country,Double time,Boolean isActive){
-        resultsService.updateResults(id,athlete,country,time,isActive);
+    @RequestMapping(value = "updateResults", method = RequestMethod.POST)
+    public void updateResults(@RequestParam Integer id, String athlete, String country, Double time, Boolean isActive) {
+        resultsService.updateResults(id, athlete, country, time, isActive);
     }
 
     @RequestMapping(value = "getLatestUpdate", method = RequestMethod.GET)
-    public Results getLatestUpdate(){
+    public Results getLatestUpdate() {
         Results results = resultsService.getLatestUpdate();
         return results;
     }
-
-
-
 
 
 }

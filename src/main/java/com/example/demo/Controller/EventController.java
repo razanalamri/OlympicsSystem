@@ -14,35 +14,27 @@ import java.io.FileNotFoundException;
 import java.util.List;
 
 @RestController
-@RequestMapping(value= "event" )
+@RequestMapping(value = "event")
 public class EventController {
     @Autowired
     EventService eventService;
 
     @RequestMapping(value = "getAll", method = RequestMethod.GET)
-    public List<Event> getAllEvents(){
+    public List<Event> getAllEvents() {
         List<Event> events = eventService.getAllEvents();
         return events;
     }
 
     @RequestMapping(value = "getById", method = RequestMethod.GET)
-    public Event getById(@RequestParam Integer id){
-        Event event=eventService.getById(id);
+    public Event getById(@RequestParam Integer id) {
+        Event event = eventService.getById(id);
         return event;
     }
 
-    @RequestMapping(value="generateReportOfEvents",method = RequestMethod.GET)
-    public String generateReportOfEvents( int year,int month) throws JRException, FileNotFoundException {
-        return eventService.generateReportOfEvents(year,month);
+    @RequestMapping(value = "generateReportOfEvents", method = RequestMethod.GET)
+    public String generateReportOfEvents(int year, int month) throws JRException, FileNotFoundException {
+        return eventService.generateReportOfEvents(year, month);
     }
-
-
-
-
-
-
-
-
 
 
 }

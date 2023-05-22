@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.Date;
 import java.util.List;
+
 @Service
 public class ResultsService {
 
@@ -21,16 +22,19 @@ public class ResultsService {
     public List<Results> getAllResults() {
         return resultsRepositry.getAllResults();
     }
+
     public Results getById(Integer id) {
         Results results = resultsRepositry.getById(id);
         return results;
 
-}
+    }
 
-    public Results getLatestUpdate(){return resultsRepositry.getLatestUpdate();}
+    public Results getLatestUpdate() {
+        return resultsRepositry.getLatestUpdate();
+    }
 
-    public void updateResults(Integer id,String athlete,String country,Double time,Boolean isActive){
-        Results results =resultsRepositry.getById(id);
+    public void updateResults(Integer id, String athlete, String country, Double time, Boolean isActive) {
+        Results results = resultsRepositry.getById(id);
         results.setAthlete(athlete);
         results.setCountry(country);
         results.setTime(time);

@@ -1,8 +1,10 @@
 package com.example.demo.Models;
+
 import lombok.Getter;
 import lombok.Setter;
 import org.hibernate.annotations.UpdateTimestamp;
 import org.springframework.data.annotation.CreatedDate;
+
 import javax.persistence.MappedSuperclass;
 import java.util.Date;
 
@@ -41,8 +43,6 @@ public class BaseEntity {
     public void setActive(Boolean active) {
         isActive = active;
     }
-
-
 
 
 }

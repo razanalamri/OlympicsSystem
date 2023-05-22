@@ -10,7 +10,7 @@ import javax.persistence.*;
 @Setter
 @Getter
 @Entity
-public class Results extends BaseEntity{
+public class Results extends BaseEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     Integer id;
@@ -21,7 +21,6 @@ public class Results extends BaseEntity{
     @OneToOne
     @JoinColumn(name = "event_id", referencedColumnName = "id")
     Event event;
-
 
 
     public Integer getId() {

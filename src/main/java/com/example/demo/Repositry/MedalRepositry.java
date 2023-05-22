@@ -8,16 +8,17 @@ import org.springframework.data.repository.query.Param;
 
 import java.util.List;
 
-public interface MedalRepositry extends JpaRepository<Medal,Integer> {
-
+public interface MedalRepositry extends JpaRepository<Medal, Integer> {
 
 
     @Query("SELECT s from Medal s")
     List<Medal> getAllMedals();
-    @Query(value="SELECT s from Medal s where s.id = :id ")
-    Medal getById(@Param("id")Integer id);
-    @Query(value="SELECT s from Medal s where s.country = :country")
-    Medal getByCountryName(@Param("country")String country);
+
+    @Query(value = "SELECT s from Medal s where s.id = :id ")
+    Medal getById(@Param("id") Integer id);
+
+    @Query(value = "SELECT s from Medal s where s.country = :country")
+    Medal getByCountryName(@Param("country") String country);
 
     @Query(value = "SELECT s from Medal s WHERE s.results.id = :id ")
     List<Medal> getMedalsByResultsId(@Param("id") Integer id);

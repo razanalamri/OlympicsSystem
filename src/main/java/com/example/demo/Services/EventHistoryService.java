@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+
 @Service
 public class EventHistoryService {
 
@@ -17,6 +18,7 @@ public class EventHistoryService {
     public List<EventsHistory> getAllEventsHistory() {
         return eventHistoryRepositry.getAllEventsHistory();
     }
+
     public EventsHistory getById(Integer id) {
         EventsHistory eventsHistory = eventHistoryRepositry.getById(id);
         return eventsHistory;

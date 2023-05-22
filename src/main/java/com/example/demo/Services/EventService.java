@@ -1,4 +1,5 @@
 package com.example.demo.Services;
+
 import com.example.demo.DTO.EventReportObject;
 import com.example.demo.Models.Event;
 import com.example.demo.Repositry.EventRepositry;
@@ -32,7 +33,7 @@ public class EventService {
         return event;
     }
 
-    public String generateReportOfEvents(int year,int month) throws FileNotFoundException, JRException {
+    public String generateReportOfEvents(int year, int month) throws FileNotFoundException, JRException {
         List<Event> events = eventRepositry.getAllEvents();
         List<EventReportObject> eventReportObjects = new ArrayList<>();
 
@@ -46,18 +47,18 @@ public class EventService {
                 Boolean isActive = event.getIsActive();
                 EventReportObject eventReportObject = new EventReportObject(name, numberOfAthletes, createdDate, updatedDate, isActive);
                 eventReportObjects.add(eventReportObject);
-            }}
-
-            File file = ResourceUtils.getFile("classpath:EventsReport.jrxml");
-            JasperReport jasperReport = JasperCompileManager.compileReport(file.getAbsolutePath());
-            var dataSource = new JRBeanCollectionDataSource(eventReportObjects);
-            Map<String, Object> paramters = new HashMap<>();
-            paramters.put("CreatedBy", "Razan");
-            JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, paramters, dataSource);
-            JasperExportManager.exportReportToPdfFile(jasperPrint, pathToReports + "\\Transaction.pdf");
-            return "Report generated : " + pathToReports + "\\Transaction.pdf";
+            }
         }
 
+        File file = ResourceUtils.getFile("classpath:EventsReport.jrxml");
+        JasperReport jasperReport = JasperCompileManager.compileReport(file.getAbsolutePath());
+        var dataSource = new JRBeanCollectionDataSource(eventReportObjects);
+        Map<String, Object> paramters = new HashMap<>();
+        paramters.put("CreatedBy", "Razan");
+        JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, paramters, dataSource);
+        JasperExportManager.exportReportToPdfFile(jasperPrint, pathToReports + "\\Transaction.pdf");
+        return "Report generated : " + pathToReports + "\\Transaction.pdf";
+    }
 
 
-         }
+}

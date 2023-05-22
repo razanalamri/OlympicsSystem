@@ -6,10 +6,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+
 @Service
 public class AthleteService {
-@Autowired
-AthleteRepositry athleteRepositry;
+    @Autowired
+    AthleteRepositry athleteRepositry;
+
     public List<Athlete> getAllAthletes() {
         return athleteRepositry.getAllAthletes();
     }

@@ -12,21 +12,21 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 @RestController
-@RequestMapping(value= "eventHistory" )
+@RequestMapping(value = "eventHistory")
 public class EventHistoryController {
 
     @Autowired
     EventHistoryService eventHistoryService;
 
     @RequestMapping(value = "getAll", method = RequestMethod.GET)
-    public List<EventsHistory> getAllEventsHistory(){
+    public List<EventsHistory> getAllEventsHistory() {
         List<EventsHistory> eventsHistory = eventHistoryService.getAllEventsHistory();
         return eventsHistory;
     }
 
     @RequestMapping(value = "getById", method = RequestMethod.GET)
-    public EventsHistory getById(@RequestParam Integer id){
-        EventsHistory eventsHistory=eventHistoryService.getById(id);
+    public EventsHistory getById(@RequestParam Integer id) {
+        EventsHistory eventsHistory = eventHistoryService.getById(id);
         return eventsHistory;
     }
 }

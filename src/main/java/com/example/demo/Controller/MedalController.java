@@ -16,7 +16,7 @@ import java.io.FileNotFoundException;
 import java.util.List;
 
 @RestController
-@RequestMapping(value= "medal" )
+@RequestMapping(value = "medal")
 public class MedalController {
     @Autowired
     SlackClient slackClient;
@@ -26,9 +26,9 @@ public class MedalController {
 
 
     @Scheduled(cron = "0 0/5 * * * *")
-    public List<Medal> getAllMedals(){
+    public List<Medal> getAllMedals() {
         List<Medal> medals = medalService.getAllMedals();
-        for(Medal medalData : medals) {
+        for (Medal medalData : medals) {
             slackClient.sendMessage(medalData.getId().toString());
             slackClient.sendMessage(medalData.getCountry());
             slackClient.sendMessage(medalData.getBronze().toString());
@@ -43,31 +43,31 @@ public class MedalController {
 
 
     @RequestMapping(value = "getById", method = RequestMethod.GET)
-    public Medal getById(@RequestParam Integer id){
-        Medal medal=medalService.getById(id);
+    public Medal getById(@RequestParam Integer id) {
+        Medal medal = medalService.getById(id);
         return medal;
     }
 
     @RequestMapping(value = "getByCountryName", method = RequestMethod.GET)
-    public Medal getByCountryName(@RequestParam String country){
-        Medal medal=medalService.getByCountryName(country);
+    public Medal getByCountryName(@RequestParam String country) {
+        Medal medal = medalService.getByCountryName(country);
         return medal;
     }
 
 
-    @RequestMapping(value="generateReportOfWonCountries",method = RequestMethod.GET)
+    @RequestMapping(value = "generateReportOfWonCountries", method = RequestMethod.GET)
     public String generateReportOfWonCountries(String country) throws JRException, FileNotFoundException {
         return medalService.generateReportOfWonCountries(country);
     }
 
     @RequestMapping(value = "getMedalsByResultsId", method = RequestMethod.GET)
-    public List<Medal> getMedalsByResultsId(@RequestParam Integer id){
-        List<Medal> medals=medalService.getMedalsByResultsId(id);
+    public List<Medal> getMedalsByResultsId(@RequestParam Integer id) {
+        List<Medal> medals = medalService.getMedalsByResultsId(id);
         return medals;
     }
 
-    @RequestMapping(value = "updateMedals",method = RequestMethod.POST)
-    public void updateMedals(@RequestParam Integer gold){
+    @RequestMapping(value = "updateMedals", method = RequestMethod.POST)
+    public void updateMedals(@RequestParam Integer gold) {
         medalService.updateMedals(gold);
     }
 }

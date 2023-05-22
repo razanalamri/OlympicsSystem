@@ -19,8 +19,6 @@ public class Athlete extends BaseEntity {
     String sport;
 
 
-
-
     public Integer getId() {
         return id;
     }

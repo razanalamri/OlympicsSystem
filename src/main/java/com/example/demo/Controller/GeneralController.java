@@ -6,11 +6,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping(value= "general" )
+@RequestMapping(value = "general")
 public class GeneralController {
     @GetMapping(value = "/testForAdmin")
     @PreAuthorize("hasRole('ADMIN')")
-    public String testForAdmin(){
+    public String testForAdmin() {
         return "it works for admin";
     }
 
