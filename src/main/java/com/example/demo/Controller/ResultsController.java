@@ -37,8 +37,8 @@ public class ResultsController {
     }
 
     @RequestMapping(value = "getLatestUpdate", method = RequestMethod.GET)
-    public List<Results> getLatestUpdate(){
-        List <Results> results = resultsService.getLatestUpdate();
+    public Results getLatestUpdate(){
+        Results results = resultsService.getLatestUpdate();
         return results;
     }
 

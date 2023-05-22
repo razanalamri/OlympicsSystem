@@ -59,4 +59,15 @@ public class MedalController {
     public String generateReportOfWonCountries(String country) throws JRException, FileNotFoundException {
         return medalService.generateReportOfWonCountries(country);
     }
+
+    @RequestMapping(value = "getMedalsByResultsId", method = RequestMethod.GET)
+    public List<Medal> getMedalsByResultsId(@RequestParam Integer id){
+        List<Medal> medals=medalService.getMedalsByResultsId(id);
+        return medals;
+    }
+
+    @RequestMapping(value = "updateMedals",method = RequestMethod.POST)
+    public void updateMedals(@RequestParam Integer gold){
+        medalService.updateMedals(gold);
+    }
 }

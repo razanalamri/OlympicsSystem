@@ -27,7 +27,7 @@ public class ResultsService {
 
 }
 
-    public List<Results> getLatestUpdate(){return resultsRepositry.getLatestUpdate();}
+    public Results getLatestUpdate(){return resultsRepositry.getLatestUpdate();}
 
     public void updateResults(Integer id,String athlete,String country,Double time,Boolean isActive){
         Results results =resultsRepositry.getById(id);

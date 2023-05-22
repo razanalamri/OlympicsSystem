@@ -4,7 +4,9 @@ import com.example.demo.DTO.EventReportObject;
 import com.example.demo.DTO.TopWonObject;
 import com.example.demo.Models.Event;
 import com.example.demo.Models.Medal;
+import com.example.demo.Models.Results;
 import com.example.demo.Repositry.MedalRepositry;
+import com.example.demo.Repositry.ResultsRepositry;
 import net.sf.jasperreports.engine.*;
 import net.sf.jasperreports.engine.data.JRBeanCollectionDataSource;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,25 +25,30 @@ public class MedalService {
     @Autowired
     MedalRepositry medalRepositry;
 
+    @Autowired
+    ResultsRepositry resultsRepositry;
+
     public List<Medal> getAllMedals() {
         return medalRepositry.getAllMedals();
     }
+
     public Medal getById(Integer id) {
         Medal medal = medalRepositry.getById(id);
         return medal;
-}
+    }
+
     public Medal getByCountryName(String country) {
         Medal medal = medalRepositry.getByCountryName(country);
         return medal;
     }
 
     public String generateReportOfWonCountries(String country) throws FileNotFoundException, JRException {
-        Medal medal =medalRepositry.getByCountryName(country);
+        Medal medal = medalRepositry.getByCountryName(country);
         List<TopWonObject> topWonObjects = new ArrayList<>();
-            String countryName =medal.getCountry();
-            Integer gold =medal.getGold();
-            TopWonObject topWonObject = new TopWonObject(countryName,gold);
-            topWonObjects.add(topWonObject);
+        String countryName = medal.getCountry();
+        Integer gold = medal.getGold();
+        TopWonObject topWonObject = new TopWonObject(countryName, gold);
+        topWonObjects.add(topWonObject);
 
 
         File file = ResourceUtils.getFile("classpath:TopWonReport.jrxml");
@@ -54,4 +61,21 @@ public class MedalService {
         return "Report generated : " + pathToReports + "\\TopWon.pdf";
     }
 
-}
+    public List<Medal> getMedalsByResultsId(Integer id) {
+        List<Medal> medals = medalRepositry.getMedalsByResultsId(id);
+        return medals;
+    }
+
+    public void updateMedals(Integer gold){
+       List <Medal> medal=medalRepositry.getAllMedals();
+        Results results=resultsRepositry.getLatestUpdate();
+        for (Medal medal1 : medal) {
+            String countryName = medal1.getCountry();
+            String resultCountry = results.getCountry();
+            if(countryName==resultCountry){
+                medal1.setGold(gold+1);
+                medalRepositry.save(medal1);
+        }}
+
+
+}}

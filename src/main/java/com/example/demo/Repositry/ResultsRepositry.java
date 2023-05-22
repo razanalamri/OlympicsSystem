@@ -17,6 +17,6 @@ public interface ResultsRepositry extends JpaRepository<Results,Integer> {
     Results getById(@Param("id")Integer id);
 
     @Query(value="SELECT s from Results s where s.updatedDate=(select MAX(s.updatedDate) from Results s)")
-    List<Results> getLatestUpdate();
+    Results getLatestUpdate();
 }
 

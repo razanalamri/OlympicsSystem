@@ -19,5 +19,7 @@ public interface MedalRepositry extends JpaRepository<Medal,Integer> {
     @Query(value="SELECT s from Medal s where s.country = :country")
     Medal getByCountryName(@Param("country")String country);
 
+    @Query(value = "SELECT s from Medal s WHERE s.results.id = :id ")
+    List<Medal> getMedalsByResultsId(@Param("id") Integer id);
 
 }
