@@ -19,9 +19,9 @@ public class Medal extends BaseEntity{
     Integer silver;
     Integer bronze;
 
-    @ManyToOne
-    @JoinColumn(name = "event_id", referencedColumnName = "id")
-    Event event;
+    @OneToOne
+    @JoinColumn(name = "results_id", referencedColumnName = "id")
+    Results results;
 
     public Integer getId() {
         return id;

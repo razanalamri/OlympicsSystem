@@ -1,5 +1,6 @@
 package com.example.demo.Controller;
 
+import com.example.demo.Models.Event;
 import com.example.demo.Models.Medal;
 import com.example.demo.Models.Results;
 import com.example.demo.Services.MedalService;
@@ -27,6 +28,17 @@ public class ResultsController {
     @RequestMapping(value = "getById", method = RequestMethod.GET)
     public Results getById(@RequestParam Integer id){
         Results results=resultsService.getById(id);
+        return results;
+    }
+
+    @RequestMapping(value = "updateResults",method = RequestMethod.POST)
+    public void updateResults(@RequestParam Integer id,String athlete,String country,Double time,Boolean isActive){
+        resultsService.updateResults(id,athlete,country,time,isActive);
+    }
+
+    @RequestMapping(value = "getLatestUpdate", method = RequestMethod.GET)
+    public List<Results> getLatestUpdate(){
+        List <Results> results = resultsService.getLatestUpdate();
         return results;
     }
 
