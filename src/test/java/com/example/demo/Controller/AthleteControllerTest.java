@@ -44,6 +44,14 @@ class AthleteControllerTest {
         assertEquals(1,id);
     }
 
+    @Test
+    void getByAthleteSport() {
+        Athlete athleteToTest;
+        athleteToTest=athleteController.getByAthleteSport("Boxing");
+        Integer id=athleteToTest.getId();
+        assertEquals(1,id);
+    }
+
 
 
 
