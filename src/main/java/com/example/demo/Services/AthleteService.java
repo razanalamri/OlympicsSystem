@@ -25,9 +25,21 @@ AthleteRepositry athleteRepositry;
 
     }
 
+    public Athlete getByAthleteNationality(String nationality) {
+        Athlete athlete = athleteRepositry.getByAthleteNationality(nationality);
+        return athlete;
+
+    }
+
+    public Athlete getByAthleteSport(String sport) {
+        Athlete athlete = athleteRepositry.getByAthleteSport(sport);
+        return athlete;
+    }
 
 
 
-    
+
+
+
 
 }

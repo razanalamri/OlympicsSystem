@@ -34,4 +34,16 @@ public class AthleteController {
         Athlete athlete=athleteService.getByAthleteName(name);
         return athlete;
     }
+
+    @RequestMapping(value = "getByAthleteNationality", method = RequestMethod.GET)
+    public Athlete getByAthleteNationality(@RequestParam String nationality){
+        Athlete athlete=athleteService.getByAthleteNationality(nationality);
+        return athlete;
+    }
+
+    @RequestMapping(value = "getByAthleteSport", method = RequestMethod.GET)
+    public Athlete getByAthleteSport(@RequestParam String sport){
+        Athlete athlete=athleteService.getByAthleteSport(sport);
+        return athlete;
+    }
 }
