@@ -17,7 +17,7 @@ import java.util.*;
 @Service
 public class EventService {
 
-    public static final String pathToReports = "C:\\Users\\user013\\Downloads\\Reports";
+    public static final String pathToReports = "C:\\Users\\user012\\Downloads\\Reports";
 
     @Autowired
     EventRepositry eventRepositry;

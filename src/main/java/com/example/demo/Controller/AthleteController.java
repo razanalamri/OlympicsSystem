@@ -14,11 +14,6 @@ import java.util.List;
 @RequestMapping(value= "athlete" )
 public class AthleteController {
 
-
-
-
-
-    /// testing
     @Autowired
     AthleteService athleteService;
 
@@ -33,5 +28,10 @@ public class AthleteController {
         Athlete athlete=athleteService.getById(id);
         return athlete;
 
+    }
+    @RequestMapping(value = "getByAthleteName", method = RequestMethod.GET)
+    public Athlete getByAthleteName(@RequestParam String name){
+        Athlete athlete=athleteService.getByAthleteName(name);
+        return athlete;
     }
 }

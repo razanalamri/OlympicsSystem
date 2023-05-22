@@ -19,7 +19,7 @@ import java.util.*;
 
 @Service
 public class MedalService {
-    public static final String pathToReports = "C:\\Users\\user013\\Downloads\\Reports";
+    public static final String pathToReports = "C:\\Users\\user012\\Downloads\\Reports";
     @Autowired
     MedalRepositry medalRepositry;
 

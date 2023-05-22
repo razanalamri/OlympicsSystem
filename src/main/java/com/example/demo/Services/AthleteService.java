@@ -19,6 +19,12 @@ AthleteRepositry athleteRepositry;
         return athlete;
     }
 
+    public Athlete getByAthleteName(String name) {
+        Athlete athlete = athleteRepositry.getByAthleteName(name);
+        return athlete;
+
+    }
+
 
 
 

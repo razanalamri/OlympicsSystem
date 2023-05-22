@@ -14,4 +14,7 @@ public interface AthleteRepositry extends JpaRepository<Athlete,Integer> {
     @Query(value="SELECT s from Athlete s where s.id = :id ")
     Athlete getById(@Param("id")Integer id);
 
+    @Query(value="SELECT s from Athlete s where s.name = :name")
+    Athlete getByAthleteName(@Param("name")String name);
+
 }
